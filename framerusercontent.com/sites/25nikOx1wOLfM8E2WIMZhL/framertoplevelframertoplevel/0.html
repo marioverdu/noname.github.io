@@ -1,0 +1,49 @@
+import * as React from "react" import * as ReactDOM from "react-dom/client"
+import * as Framer from "framer" window.__framer_importFromPackage =
+(packageAndFilename, exportIdentifier) => () => { return
+React.createElement(Framer.ErrorPlaceholder, { error: 'Package component not
+supported: "' + exportIdentifier + '" in "' + packageAndFilename + '"' }) } // A
+lot of libraries assume process.env.NODE_ENV is present in runtime/buildtime, so
+we are polyfilling it window.process = { ...window.process, env: {
+...(window.process ? window.process.env: undefined), NODE_ENV: "production" } }
+// Fallback support for stack gaps Framer.installFlexboxGapWorkaroundIfNeeded()
+;(async () => { const routes = {aJhphaGWP: {elements: {}, page: Framer.lazy(()
+=>
+import("https://framerusercontent.com/modules/tLKDNWxPogqmM06J7tCk/5ywk4zLSwmoX2V8ktDh6/aJhphaGWP.js")),
+path: "/blog"}, augiA20Il: {elements: {}, page: Framer.lazy(() =>
+import("https://framerusercontent.com/modules/jom7v1Wma0LKfh9wsVyT/GRIILXWR522E0K7l801m/augiA20Il.js")),
+path: "/"}, bO4CfmM38: {elements: {}, page: Framer.lazy(() =>
+import("https://framerusercontent.com/modules/VSR8D0XkYeCgPmO9PpzW/wX6cq0yuxsoDFaCKwhA9/bO4CfmM38.js")),
+path: "/about-me"}, d3tmJ4GhL: {elements: {}, page: Framer.lazy(() =>
+import("https://framerusercontent.com/modules/nTrhW8kZg9ccl24l5NE1/6Kc9oZDbxmLXOaFX4E4Y/d3tmJ4GhL.js")),
+path: "/blog/:WCZZQoemL"}, Jm8i4j22C: {elements: {}, page: Framer.lazy(() =>
+import("https://framerusercontent.com/modules/o5MwNEQw1x6plHrcDGZU/PPKQ4Z4Uj1AfrolXUEDg/Jm8i4j22C.js")),
+path: "/to-move-figma-components-here-(delete-pls)"}, MCAKHP08Z: {elements: {},
+page: Framer.lazy(() =>
+import("https://framerusercontent.com/modules/C33eguPWJx8VTh3dMAIP/MaPhXeECYW76dNnX8Dex/MCAKHP08Z.js")),
+path: "/archived"}, Pp2_1L2Jy: {elements: {}, page: Framer.lazy(() =>
+import("https://framerusercontent.com/modules/2Et4bwccXiS5DKd9bgOv/JyxK1JzU89THIDqlvuac/Pp2_1L2Jy.js")),
+path: "/page-1"}, UxRz7u4iS: {elements: {}, page: Framer.lazy(() =>
+import("https://framerusercontent.com/modules/1So4Ry2n1q9g0on20V7Z/vcp5YgIYPZoHwjZrdTX6/UxRz7u4iS.js")),
+path: "/components"}, xE_6t4Zt8: {elements: {}, page: Framer.lazy(() =>
+import("https://framerusercontent.com/modules/oSMLhhU1tZswikTofZa4/dZ2LoC6T0BMalMX8ECLh/xE_6t4Zt8.js")),
+path: "/404"}} const notFoundPage = Framer.lazy(() =>
+import("https://framerusercontent.com/modules/oSMLhhU1tZswikTofZa4/dZ2LoC6T0BMalMX8ECLh/xE_6t4Zt8.js"))
+const container = document.getElementById("main") let routeId, pathVariables,
+shouldHydrate = false if ("framerHydrateV2" in container.dataset) { const
+routeData = JSON.parse(container.dataset.framerHydrateV2) routeId =
+routeData.routeId pathVariables = routeData.pathVariables shouldHydrate = true }
+else { const routeData = Framer.inferInitialRouteFromPath(routes,
+decodeURIComponent(location.pathname)) routeId = routeData.routeId pathVariables
+= routeData.pathVariables } const route = routes[routeId] const RootComponent =
+await route.page.preload() routes[routeId].page = RootComponent const element =
+React.createElement( Framer.PageRoot, { RootComponent, isWebsite: true, routeId,
+pathVariables, routes, notFoundPage, isReducedMotion: true, includeDataObserver:
+false, } ) window.__html_time_to_render_start = performance.now() if
+(shouldHydrate) { ReactDOM.hydrateRoot(container, element) } else {
+ReactDOM.createRoot(container).render(element) }
+window.__html_time_to_render_end = performance.now() })().catch(error => {
+window.__send_framer_event &&
+window.__send_framer_event("published_site_load_error", { message:
+String(error), stack: error instanceof Error && typeof error.stack === "string"
+? error.stack : null }) throw error })
